@@ -1,146 +1,267 @@
+- TOP NOTIFICATION & L-ANGUAGE BAR -->
+<div class="bg-church-navy text-slate-200 text-xs py-2 px-4 border-b border-amber-500/20">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-4">
+            <span><i class="fas fa-map-marker-alt text-amber-400 mr-1"></i> Gofe Town, Sidama Region, Ethiopia</span>
+            <span class="hidden md:inline"><i class="fas fa-phone text-amber-400 mr-1"></i> +251 925663612</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="lbl-select-lang" class="font-medium text-amber-300">Language:</span>
+            <div class="inline-flex rounded-md shadow-sm bg-church-navyLight p-0.5 border border-amber-500/30">
+                <button onclick="setLanguage('sid')" id="btn-lang-sid" class="px-2.5 py-1 rounded text-xs font-semibold transition-all text-slate-300 hover:text-white">Sidaamu Afoo</button>
+                <button onclick="setLanguage('am')" id="btn-lang-am" class="px-2.5 py-1 rounded text-xs font-semibold transition-all text-slate-300 hover:text-white">አማርኛ</button>
+                <button onclick="setLanguage('en')" id="btn-lang-en" class="px-2.5 py-1 rounded text-xs font-semibold transition-all bg-amber-500 text-church-navy shadow">English</button>
+            </div>
+            <button onclick="openAdminLogin()" class="ml-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 px-2.5 py-1 rounded transition text-xs font-semibold border border-amber-500/40">
+                <i class="fas fa-lock mr-1"></i> <span id="lbl-admin-portal">Admin Portal</span>
+            </button>
+        </div>
+    </div>
+</div>
 
-<!-- START GOFE GUENET PHOTO GALLERY -->
+<!-- MAIN NAVIGATION -->
+<header class="sticky top-0 z-40 bg-church-navy/95 backdrop-blur-md border-b border-slate-800 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            <!-- Logo & Title -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-church-navy font-bold text-xl shadow-md border-2 border-amber-300 group-hover:scale-105 transition">
+                    <i class="fas fa-church"></i>
+                </div>
+                <div>
+                    <h1 class="text-white font-bold text-lg sm:text-xl leading-tight font-ethiopic">ጐፌ ገነት ወንጌላዊ ቤተክርስትያን</h1>
+                    <p class="text-amber-400 text-xs tracking-wider uppercase font-semibold">Gofe Genut Evangelical Church</p>
+                </div>
+            </a>
 
-<style>
-#gg-church-gallery {
-  background: #f4f7fb;
-  padding: 60px 5%;
-  font-family: Arial, sans-serif;
-}
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-200">
+                <a href="#home" class="hover:text-amber-400 transition" data-i18n="nav_home">Home</a>
+                <a href="#about" class="hover:text-amber-400 transition" data-i18n="nav_about">About Us</a>
+                <a href="#leadership" class="hover:text-amber-400 transition" data-i18n="nav_leadership">Leadership</a>
+                <a href="#ministries" class="hover:text-amber-400 transition" data-i18n="nav_ministries">Ministries</a>
+                <a href="#worship" class="hover:text-amber-400 transition" data-i18n="nav_worship">Worship & Programs</a>
+                <a href="#events" class="hover:text-amber-400 transition" data-i18n="nav_events">Events</a>
+                <a href="#gallery" class="hover:text-amber-400 transition" data-i18n="nav_gallery">Gallery</a>
+                <a href="#contact" class="hover:text-amber-400 transition" data-i18n="nav_contact">Contact</a>
+            </nav>
 
-#gg-church-gallery .gg-title {
-  text-align: center;
-  margin-bottom: 35px;
-}
+            <!-- CTA Register Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="#register" class="gold-gradient hover:opacity-95 text-church-navy font-bold px-5 py-2.5 rounded-full shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                    <i class="fas fa-user-plus"></i>
+                    <span data-i18n="btn_join_church">Join Church</span>
+                </a>
+            </div>
 
-#gg-church-gallery .gg-title h2 {
-  color: #173451;
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-#gg-church-gallery .gg-title p {
-  color: #666;
-}
-
-#gg-church-gallery .gg-photos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-#gg-church-gallery .gg-photo {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 5px 20px #0002;
-}
-
-#gg-church-gallery .gg-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .4s;
-}
-
-#gg-church-gallery .gg-photo:hover img {
-  transform: scale(1.07);
-}
-
-#gg-church-gallery .gg-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 25px 15px 15px;
-  color: white;
-  background: linear-gradient(transparent, #000c);
-}
-
-#gg-church-gallery .gg-caption h3 {
-  margin: 0 0 5px;
-}
-
-#gg-church-gallery .gg-caption p {
-  margin: 0;
-  font-size: 13px;
-}
-
-@media(max-width: 700px) {
-  #gg-church-gallery .gg-photos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media(max-width: 450px) {
-  #gg-church-gallery .gg-photos {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-
-<section id="gg-church-gallery">
-
-  <div class="gg-title">
-    <h2>GOFE GUENET CHURCH</h2>
-    <p>Our Faith, Our Fellowship, Our Memories</p>
-  </div>
-
-  <div class="gg-photos">
-
-    <div class="gg-photo">
-      <img src="images/church1.jpg" alt="Church picture">
-      <div class="gg-caption">
-        <h3>Our Church</h3>
-        <p>A place of worship</p>
-      </div>
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-amber-400 focus:outline-none p-2">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div class="gg-photo">
-      <img src="images/church2.jpg" alt="Church fellowship">
-      <div class="gg-caption">
-        <h3>Fellowship</h3>
-        <p>Growing together</p>
-      </div>
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-church-navyLight border-t border-slate-800 px-4 pt-3 pb-5 space-y-2">
+        <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_home">Home</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_about">About Us</a>
+        <a href="#leadership" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_leadership">Leadership</a>
+        <a href="#ministries" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_ministries">Ministries</a>
+        <a href="#worship" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_worship">Worship & Programs</a>
+        <a href="#events" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_events">Events</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_gallery">Gallery</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 py-2 font-medium" data-i18n="nav_contact">Contact</a>
+        <div class="pt-2">
+            <a href="#register" onclick="toggleMobileMenu()" class="block text-center gold-gradient text-church-navy font-bold py-2.5 rounded-full shadow">
+                <i class="fas fa-user-plus mr-1"></i> <span data-i18n="btn_join_church">Join Church</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="relative bg-church-navy text-white min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=1920&q=80" alt="Church Background" class="w-full h-full object-cover opacity-30 transform scale-105 animate-pulse duration-[10000ms]">
+        <div class="absolute inset-0 hero-overlay"></div>
     </div>
 
-    <div class="gg-photo">
-      <img src="images/church3.jpg" alt="Church worship">
-      <div class="gg-caption">
-        <h3>Worship</h3>
-        <p>Praising God together</p>
-      </div>
-    </div>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 px-4 py-1.5 rounded-full text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+            <i class="fas fa-dove text-amber-400"></i>
+            <span id="hero-tagline-badge" data-i18n="hero_badge">Growing in Faith, United in Christ, Serving with Love</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 font-ethiopic leading-tight">
+            ጐፌ ገነት ወንጌላዊ ቤተክርስትያን
+        </h1>
+        <h2 class="text-xl sm:text-2xl md:text-3xl text-amber-300 font-semibold mb-6 tracking-wide">
+            GOFE GUENUT EVANGELICAL CHURCH
+        </h2>
+        
+        <p id="welcome-message-p" class="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light" data-i18n="hero_welcome_desc">
+            Welcome to our spiritual home in Gofe Town, Sidama Region, Ethiopia. We preach the Gospel, nurture believers in Christ, and serve our community with unconditional love and grace.
+        </p>
 
-    <div class="gg-photo">
-      <img src="images/church4.jpg" alt="Church community">
-      <div class="gg-caption">
-        <h3>Our Community</h3>
-        <p>United in Christ</p>
-      </div>
-    </div>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#register" class="w-full sm:w-auto gold-gradient text-church-navy font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 transition duration-300 flex items-center justify-center gap-2 text-base">
+                <i class="fas fa-user-plus"></i> <span data-i18n="btn_join_church">Join Our Church</span>
+            </a>
+            <a href="#about" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-8 py-4 rounded-full shadow-lg transition duration-300 flex items-center justify-center gap-2 text-base backdrop-blur-sm">
+                <i class="fas fa-info-circle text-amber-400"></i> <span data-i18n="btn_learn_more">Learn More</span>
+            </a>
+        </div>
 
-    <div class="gg-photo">
-      <img src="images/church5.jpg" alt="Church gathering">
-      <div class="gg-caption">
-        <h3>Our Gathering</h3>
-        <p>Sharing love and faith</p>
-      </div>
+        <!-- Quick stats bar -->
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 bg-church-navyLight/80 backdrop-blur border border-amber-500/20 rounded-2xl p-6 shadow-2xl">
+            <div class="text-center">
+                <div id="stat-members-count" class="text-3xl sm:text-4xl font-extrabold text-amber-400">1,250+</div>
+                <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium" data-i18n="stat_members">Active Members</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-amber-400">8+</div>
+                <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium" data-i18n="stat_ministries">Active Ministries</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-amber-400">4</div>
+                <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium" data-i18n="stat_services">Weekly Services</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-amber-400">1998</div>
+                <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium" data-i18n="stat_founded">Established (E.C.)</div>
+            </div>
+        </div>
     </div>
-
-    <div class="gg-photo">
-      <img src="images/church6.jpg" alt="Church activities">
-      <div class="gg-caption">
-        <h3>Our Activities</h3>
-        <p>Serving with joy</p>
-      </div>
-    </div>
-
-  </div>
 </section>
 
-<!-- END GOFE GUENET PHOTO GALLERY -->
+<!-- ABOUT OUR CHURCH -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-amber-600 font-bold uppercase tracking-widest text-xs bg-amber-100 px-3 py-1 rounded-full" data-i18n="about_tag">About Our Church</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-church-navy mt-3 mb-4" data-i18n="about_title">Rooted in Scripture, Reaching Our Community</h2>
+            <div class="w-20 h-1 bg-amber-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+                <h3 class="text-2xl font-bold text-church-navy mb-4 font-ethiopic" data-i18n="history_title">Our History</h3>
+                <p class="text-slate-600 leading-relaxed mb-4" data-i18n="history_desc1">
+                    Gofe Genut Evangelical Church was established through the grace of God and the dedication of faithful believers in Gofe Town, Sidama region. What began as a humble fellowship prayer group has blossomed into a vibrant beacon of light and spiritual revival.
+                </p>
+                <p class="text-slate-600 leading-relaxed mb-6" data-i18n="history_desc2">
+                    Today, our congregation embraces families and youths from all walks of life, united in worshiping our Lord Jesus Christ and transforming our community through Christian love and biblical truth.
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
+                        <i class="fas fa-bible text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-church-navy" data-i18n="biblical_foundation">Biblical Foundation</h4>
+                        <p class="text-sm text-slate-500" data-i18n="biblical_desc">All scripture is inspired by God and is useful for teaching, rebuking, correcting and training in righteousness.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1510938111035-424b910404a0?auto=format&fit=crop&w=600&q=80" alt="Church Service" class="rounded-2xl shadow-lg object-cover h-64 w-full">
+                <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=600&q=80" alt="Worship Team" class="rounded-2xl shadow-lg object-cover h-64 w-full mt-8">
+            </div>
+        </div>
+
+        <!-- Vision, Mission & Values Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center text-church-navy text-2xl mb-6 shadow">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="text-xl font-bold text-church-navy mb-3" data-i18n="vision_title">Our Vision</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="vision_desc">
+                    To see transformed lives across Sidama and beyond through the power of the Gospel, creating a spiritually mature and loving church community.
+                </p>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center text-church-navy text-2xl mb-6 shadow">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="text-xl font-bold text-church-navy mb-3" data-i18n="mission_title">Our Mission</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="mission_desc">
+                    To worship God in spirit and truth, make disciples of Jesus Christ, equip believers for ministry, and extend compassionate service to the needy.
+                </p>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center text-church-navy text-2xl mb-6 shadow">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-church-navy mb-3" data-i18n="values_title">Core Values</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="values_desc">
+                    Christ-centered living, biblical authority, fervent prayer, loving fellowship, integrity, and proactive community evangelism.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CHURCH LEADERSHIP -->
+<section id="leadership" class="py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-amber-600 font-bold uppercase tracking-widest text-xs bg-amber-100 px-3 py-1 rounded-full" data-i18n="lead_tag">Spiritual Guidance</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-church-navy mt-3 mb-4" data-i18n="lead_title">Meet Our Church Leadership</h2>
+            <div class="w-20 h-1 bg-amber-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Leader 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Senior Pastor" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-church-navy/80 to-transparent opacity-60"></div>
+                    <span class="absolute bottom-3 left-3 bg-amber-500 text-church-navy text-xs font-bold px-2.5 py-1 rounded-md" data-i18n="role_senior_pastor">Senior Pastor</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-church-navy">Pastor Tesfaye Bekele</h3>
+                    <p class="text-slate-500 text-xs mt-1 mb-3" data-i18n="pastor_desc">Leading the congregation with spiritual wisdom, vision, and devotion to God's Word.</p>
+                    <div class="flex gap-2 text-amber-500 text-sm">
+                        <i class="fab fa-facebook hover:text-church-navy cursor-pointer"></i>
+                        <i class="fab fa-telegram hover:text-church-navy cursor-pointer"></i>
+                        <i class="fas fa-envelope hover:text-church-navy cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leader 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80" alt="Assistant Pastor" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-church-navy/80 to-transparent opacity-60"></div>
+                    <span class="absolute bottom-3 left-3 bg-amber-500 text-church-navy text-xs font-bold px-2.5 py-1 rounded-md" data-i18n="role_asst_pastor">Assistant Pastor</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-church-navy">Pastor Desta Wolde</h3>
+                    <p class="text-slate-500 text-xs mt-1 mb-3" data-i18n="asst_desc">Overseeing discipleship programs, youth growth, and pastoral counseling.</p>
+                    <div class="flex gap-2 text-amber-500 text-sm">
+                        <i class="fab fa-facebook hover:text-church-navy cursor-pointer"></i>
+                        <i class="fab fa-telegram hover:text-church-navy cursor-pointer"></i>
+                        <i class="fas fa-envelope hover:text-church-navy cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leader 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80" alt="Church Elder" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-church-navy/80 to-transparent opacity-60"></div>
+                    <span class="absolute bottom-3 left-3 bg-amber-500 text-church-navy text-xs font-bold px-2.5 py-1 rounded-md" data-i18n="role_elder">Church Elder</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-church-navy">Elder Markos Tadesse</h3>
+                    <p class="text-slate-500 text-xs mt-1 mb-3" data-i18n="elder_desc">Guiding church governance, prayer ministry, and spiritual accountability.</p>
+                    <div class="flex gap-2 text-amber-500 text-sm">
+                        <i class="fab fa-facebook hover:text-church-navy cursor-pointer"></i>
+                 
