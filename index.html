@@ -1,67 +1,146 @@
 
-<!-- GOFE GUENET CHURCH PHOTO GALLERY -->
-<section class="church-gallery" id="gallery">
+<!-- START GOFE GUENET PHOTO GALLERY -->
 
-  <div class="gallery-heading">
-    <span class="gallery-label">OUR MEMORIES</span>
+<style>
+#gg-church-gallery {
+  background: #f4f7fb;
+  padding: 60px 5%;
+  font-family: Arial, sans-serif;
+}
+
+#gg-church-gallery .gg-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+#gg-church-gallery .gg-title h2 {
+  color: #173451;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+#gg-church-gallery .gg-title p {
+  color: #666;
+}
+
+#gg-church-gallery .gg-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#gg-church-gallery .gg-photo {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px #0002;
+}
+
+#gg-church-gallery .gg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s;
+}
+
+#gg-church-gallery .gg-photo:hover img {
+  transform: scale(1.07);
+}
+
+#gg-church-gallery .gg-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 15px 15px;
+  color: white;
+  background: linear-gradient(transparent, #000c);
+}
+
+#gg-church-gallery .gg-caption h3 {
+  margin: 0 0 5px;
+}
+
+#gg-church-gallery .gg-caption p {
+  margin: 0;
+  font-size: 13px;
+}
+
+@media(max-width: 700px) {
+  #gg-church-gallery .gg-photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 450px) {
+  #gg-church-gallery .gg-photos {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<section id="gg-church-gallery">
+
+  <div class="gg-title">
     <h2>GOFE GUENET CHURCH</h2>
-    <p>
-      Capturing our moments of worship, fellowship,
-      love and unity in Christ.
-    </p>
-    <div class="gallery-line"></div>
+    <p>Our Faith, Our Fellowship, Our Memories</p>
   </div>
 
-  <div class="gallery-grid">
+  <div class="gg-photos">
 
-    <div class="gallery-item">
-      <img src="images/church1.jpg" alt="Gofe Guenet Church">
-      <div class="image-caption">
+    <div class="gg-photo">
+      <img src="images/church1.jpg" alt="Church picture">
+      <div class="gg-caption">
         <h3>Our Church</h3>
-        <p>A place of faith and worship</p>
+        <p>A place of worship</p>
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gg-photo">
       <img src="images/church2.jpg" alt="Church fellowship">
-      <div class="image-caption">
+      <div class="gg-caption">
         <h3>Fellowship</h3>
-        <p>Growing together in Christ</p>
+        <p>Growing together</p>
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gg-photo">
       <img src="images/church3.jpg" alt="Church worship">
-      <div class="image-caption">
+      <div class="gg-caption">
         <h3>Worship</h3>
         <p>Praising God together</p>
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gg-photo">
       <img src="images/church4.jpg" alt="Church community">
-      <div class="image-caption">
-        <h3>Community</h3>
-        <p>United in faith and love</p>
+      <div class="gg-caption">
+        <h3>Our Community</h3>
+        <p>United in Christ</p>
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gg-photo">
       <img src="images/church5.jpg" alt="Church gathering">
-      <div class="image-caption">
-        <h3>Gathering</h3>
-        <p>Sharing beautiful moments</p>
+      <div class="gg-caption">
+        <h3>Our Gathering</h3>
+        <p>Sharing love and faith</p>
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gg-photo">
       <img src="images/church6.jpg" alt="Church activities">
-      <div class="image-caption">
+      <div class="gg-caption">
         <h3>Our Activities</h3>
-        <p>Serving God with joy</p>
+        <p>Serving with joy</p>
       </div>
     </div>
 
   </div>
 </section>
-<!-- END CHURCH PHOTO GALLERY -->
+
+<!-- END GOFE GUENET PHOTO GALLERY -->
